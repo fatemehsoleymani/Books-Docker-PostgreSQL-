@@ -9,9 +9,6 @@ class HomePageTest(TestCase):
         url = reverse('home')
         self.response = self.client.get(url)
 
-    def test_home_page_status_code(self):
-        self.assertEqual(self.response, 200)
-
     def test_home_page_url_name(self):
         self.assertEqual(self.response.status_code, 200)
 
