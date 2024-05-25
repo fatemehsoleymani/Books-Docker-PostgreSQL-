@@ -26,7 +26,7 @@
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <form action="{% url 'logout' %}" method="post">
+            <form action="{% url 'account_logout' %}" method="post">
               {% csrf_token %}
               {{ form.as_p }}
               <a class="nav-link"><button style="border: none;background-color: rgb(33, 37, 41);color: rgba(255, 255, 255, .55);" type="submit">Log Out</button> </a>
@@ -34,10 +34,10 @@
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+            <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+            <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
           </li>
           {% endif %}
         </ul>

@@ -35,13 +35,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'crispy_forms',
+    'allauth',
+    'allauth.account',
     'crispy_bootstrap5',
     'accounts',
     'pages',
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # new
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -125,9 +129,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_FINDERS = [
-     "django.contrib.staticfiles.finders.FileSystemFinder",
-     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
- ]
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -138,4 +142,20 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 
-LOGOUT_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+# django-allauth config
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
