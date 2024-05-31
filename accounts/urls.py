@@ -4,4 +4,5 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('signup/', SignupPageView.as_view(), name='signup', ),
+    path('', include('django.contrib.auth.urls')),
 ]
