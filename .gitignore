@@ -5,3 +5,6 @@ local_*.py
 .log
 .venv/
 .venv
+docker-compose-prod.yml
+__pycache__/
+
