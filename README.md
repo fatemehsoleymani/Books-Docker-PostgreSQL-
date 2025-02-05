@@ -13,6 +13,13 @@ This repository contains the source code for a book application built with Djang
 ## Project Overview
 
 This is a Django-based web application designed for managing books, user reviews, and associated media files. It includes features such as searching, filtering, user authentication, and the ability to manage book data securely. The application also provides a review system, allowing users to leave feedback on books they've read.
+This project includes a comprehensive suite of tests to ensure the functionality and security of the application. Tests are written using Django’s built-in testing framework and cover key features like:
+
+    User Authentication: Verifying that users can sign up, log in, and access their accounts securely.
+    Book Management: Ensuring books can be added, edited, viewed, and deleted correctly.
+    Reviews System: Testing the creation and management of reviews by users.
+    Permissions: Verifying that users are restricted based on permissions for certain views.
+    Search Functionality: Ensuring search queries return accurate results.
 
 ## Features
 
